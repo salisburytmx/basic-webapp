@@ -6,11 +6,13 @@ app.http('message', {
     handler: async (request, context) => {
         context.log(`Http function processed request for url "${request.url}"`);
 
+        const greetings = new Map([
+            ["mike", "Howdy"],
+            ["joe", "Yo"],
+            ["mel", "Sup"]
+        ]);
         const name = request.query.get('name') || await request.text() || 'world';
-        let greeting = "Hello";
-        if (name == 'mike') { greeting = "Howdy" }
-        if (name == 'joe') { greeting = "Yo" }
-        if (name == 'mel') { greeting = "Sup" }
+        const greeting = greetings.has(name) ? greetings.get(name) : "Hello";
 
         return { body: JSON.stringify({ "text": `${greeting} ${name}, from the API!` }) };
     }
