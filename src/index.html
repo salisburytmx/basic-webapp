@@ -26,7 +26,7 @@
     }());
     (async function() {
         // Pass web arg 'name' to api.
-        const snow = await fetch(`https://func-sbx-tmx-nc-salisbury-snowflake-connector.azurewebsites.net/api/SnowflakeTrigger?name=${name}`);
+        const snow = await (await fetch(`https://func-sbx-tmx-nc-salisbury-snowflake-connector.azurewebsites.net/api/SnowflakeTrigger?name=${name}`)).text();
         document.querySelector('#snow').textContent = snow;
     }());
     </script>
