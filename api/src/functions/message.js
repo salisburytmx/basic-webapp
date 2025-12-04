@@ -12,6 +12,6 @@ app.http('message', {
         if (name == 'joe') { greeting = "Yo" }
         if (name == 'mel') { greeting = "Sup" }
 
-        return { body: JSON.stringify({ "text": "${greeting} ${name}, from the API!" }) };
+        return { body: JSON.stringify({ "text": `${greeting} ${name}, from the API!` }) };
     }
 });
