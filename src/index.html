@@ -20,7 +20,7 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const name = urlParams.get('name');
-        const { greeting } = await( await fetch(`/api/message?name=${name}`)).json();
+        const { greeting } = await( await fetch(`/api/message?name=${name}`).json());
         document.querySelector('#greeting').textContent = greeting;
     }());
     </script>
