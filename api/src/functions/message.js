@@ -7,7 +7,7 @@ app.http('message', {
         context.log(`Http function processed request for url "${request.url}"`);
 
         const name = request.query.get('name') || await request.text() || 'world';
-        const greeting = "Hello";
+        let greeting = "Hello";
         if (name == 'mike') { greeting = "Howdy" }
         if (name == 'joe') { greeting = "Yo" }
         if (name == 'mel') { greeting = "Sup" }

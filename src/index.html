@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Vanilla JavaScript App</title>
+    <title>Basic WebApp</title>
 </head>
 
 <body>
     <main>
-    <h1>Vanilla JavaScript App</h1>
-    <p>Loading content from the API: <b id="greeting">...</b></p>
+    <h1>Basic WebApp</h1>
+    <p>Loading greeting from the API: <b id="greeting">...</b></p>
     </main>
 
     <script>
@@ -20,8 +20,8 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const name = urlParams.get('name');
-        const { text } = await( await fetch(`/api/message?name=${name}`)).json();
-        document.querySelector('#greeting').textContent = text;
+        const { greeting } = await( await fetch(`/api/message?name=${name}`)).json();
+        document.querySelector('#greeting').textContent = greeting;
     }());
     </script>
 </body>
