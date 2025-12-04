@@ -10,7 +10,7 @@
 
 <body>
     <main>
-    <h1>WebApp to call Backend API</h1>
+    <h1>WebApp to call Backend APIs</h1>
     <p>Loading greeting from the API: <b id="greeting">...</b></p>
     <p>Loading greeting from the snowflake API: <b id="snow">...</b></p>
     </main>
@@ -26,7 +26,7 @@
     }());
     (async function() {
         // Pass web arg 'name' to api.
-        const { text: snow } = await (await fetch(`https://func-sbx-tmx-nc-salisbury-snowflake-connector.azurewebsites.net/api/SnowflakeTrigger?name=${name}`)).json();
+        const snow = await fetch(`https://func-sbx-tmx-nc-salisbury-snowflake-connector.azurewebsites.net/api/SnowflakeTrigger?name=${name}`);
         document.querySelector('#snow').textContent = snow;
     }());
     </script>
