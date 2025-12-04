@@ -21,7 +21,8 @@
         const urlParams = new URLSearchParams(queryString);
         const name = urlParams.get('name');
         const { greeting } = await (await fetch(`/api/message?name=${name}`)).json();
-        document.querySelector('#greeting').textContent = greeting.text;
+        console.log(`greeting = ${greeting}`);
+        document.querySelector('#greeting').textContent = greeting;
     }());
     </script>
 </body>
