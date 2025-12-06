@@ -7,13 +7,13 @@ app.http('message', {
         context.log(`Http function processed request for url "${request.url}"`);
 
         const greetings = new Map([
-            ["mike", "Howdy"],
-            ["joe", "Yo"],
-            ["mel", "Sup"]
+            ["fred", "Howdy y'all"],
+            ["julie", "Yo"],
+            ["alex", "Sup"]
         ]);
         const name = request.query.get('name') || await request.text() || 'world';
         const greeting = greetings.has(name) ? greetings.get(name) : "Hello";
 
-        return { body: JSON.stringify({ "text": `${greeting} ${name}, from the API!` }) };
+        return { body: JSON.stringify({ "greeting": `${greeting} ${name}, from the API!` }) };
     }
 });

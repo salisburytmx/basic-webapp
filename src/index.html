@@ -21,13 +21,13 @@
     const name = urlParams.get('name');
     (async function() {
         // Pass web arg 'name' to api.
-        const { text: greeting } = await (await fetch(`/api/message?name=${name}`)).json();
-        document.querySelector('#greeting').textContent = greeting;
+        const { greeting: api_greeting } = await (await fetch(`/api/message?name=${name}`)).json();
+        document.querySelector('#greeting').textContent = api_greeting;
     }());
     (async function() {
         // Pass web arg 'name' to api.
-        const snow = await (await fetch(`https://func-sbx-tmx-nc-salisbury-snowflake-connector.azurewebsites.net/api/SnowflakeTrigger?name=${name}`)).text();
-        document.querySelector('#snow').textContent = snow;
+        const { greeting: snow_greeting } = await (await fetch(`https://func-sbx-tmx-nc-salisbury-snowflake-connector.azurewebsites.net/api/SnowflakeTrigger?name=${name}`)).json();
+        document.querySelector('#snow').textContent = snow_greeting;
     }());
     </script>
 </body>
